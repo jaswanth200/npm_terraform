@@ -261,6 +261,7 @@ resource "aws_launch_configuration" "pro_aws_asg_config" {
   image_id = aws_ami_from_instance.first_instance_ami.id
   instance_type = "t2.micro"
   key_name = "terraformkey"
+  associate_public_ip_address = true
   security_groups = [aws_security_group.prosg.id]
 
 }
