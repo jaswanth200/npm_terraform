@@ -21,3 +21,7 @@ output "aval_1c_subnet" {
 output "first_instance_ami" {
   value = aws_ami_from_instance.first_instance_ami.id
 }
+
+output "prosg" {
+  value = aws_security_group.prosg.id
+}
