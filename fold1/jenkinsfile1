@@ -9,6 +9,13 @@ pipeline {
                 }
             }
         }
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    sh "cd fold1 && terraform apply -auto-approve"
+                }
+            }
+        }
     }
 }
 
