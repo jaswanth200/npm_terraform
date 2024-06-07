@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+   
+    stages {
+        stage('Terraform Init') {
+            steps {
+                dir('fold1') {
+                    script {
+                        sh 'terraform init'
+                    }
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                dir('fold1') {
+                    script {
+                        sh 'terraform apply -auto-approve'
+                    }
+                }
+            }
+        }
+    }
+}
