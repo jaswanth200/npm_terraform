@@ -5,7 +5,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh "cd fold1 && ls"
+                    sh "cd fold1 && terraform init"
                 }
             }
         }
