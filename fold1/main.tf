@@ -177,6 +177,7 @@ resource "aws_instance" "first_instance" {
               #!/bin/bash
               sudo apt-get update
               sudo apt-get install -y openjdk-11-jdk
+              sudo apt-get install -y nginx
               EOF
     key_name = "terraformkey"
     associate_public_ip_address = true
