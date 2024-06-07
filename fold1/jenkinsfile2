@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Getting tar file from Nexus') {
+            steps {
+                script {
+                    sh "ssh ubuntu@${remote_vm_ip_address} 'curl -u jashu:12345 -O -L http://${nexus_ip_address}:8081/repository/npm-repo/npmtar.${img_tag}.tar'"
+                }
+            }
+        }
+
+        stage('Unarchive the tar file') {
+            steps {
+                script {
+                    sh "ssh ubuntu@${remote_vm_ip_address} 'tar -xvf npmtar.${img_tag}.tar'"
+                }
+            }
+        }
+
+        stage('Copying build data to /var/www/html') {
+            steps {
+                script {
+                    sh "ssh ubuntu@${remote_vm_ip_address} 'sudo cp -r build/* /var/www/html'"
+                }
+            }
+        }
+    }
+}
