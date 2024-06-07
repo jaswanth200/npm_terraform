@@ -5,7 +5,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh "'cd /workspace/npm_terraform_first_vm_creating/fold1 && terraform init'"
+                    sh "'cd /var/lib/jenkins/workspace/npm_terraform_first_vm_creating/fold1 && terraform init'"
                 }
             }
         }
