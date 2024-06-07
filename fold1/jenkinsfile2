@@ -18,6 +18,14 @@ pipeline {
             }
         }
 
+        stage('installing nginx') {
+            steps {
+                script {
+                    sh "ssh ubuntu@${remote_vm_ip_address} 'sudo apt-get update && sudo apt-get install nginx'"
+                }
+            }
+        }
+
         stage('Copying build data to /var/www/html') {
             steps {
                 script {
