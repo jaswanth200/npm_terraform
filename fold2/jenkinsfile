@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+   
+    stages {
+
+        stage('Terraform Init') {
+            steps {
+                script {
+                    sh "'cd npm_frontend/fold2 && terraform init'"
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    sh "'cd npm_frontend/fold2 && terraform apply -auto-approve'"
+                }
+            }
+        }
+    }
+}
