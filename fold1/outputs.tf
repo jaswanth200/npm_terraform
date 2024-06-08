@@ -22,6 +22,12 @@ output "first_instance_ami" {
   value = aws_ami_from_instance.first_instance_ami.id
 }
 
+output "first_instance_ip" {
+  value = aws_instance.first_instance.public_ip
+}
+
 output "prosg" {
   value = aws_security_group.prosg.id
 }
+
+
