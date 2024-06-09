@@ -16,7 +16,7 @@ provider "aws" {
 data "terraform_remote_state" "networking" {
   backend = "local"
   config = {
-    path = "../fold1/terraform.tfstate"  # Path to the first configuration's state file
+    path = "/var/lib/jenkins/workspace/npm_terraform_first_vm_creating/fold1/terraform.tfstate"  # Path to the first configuration's state file
   }
 }
 
