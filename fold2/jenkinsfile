@@ -6,7 +6,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh "'cd npm_frontend/fold2 && terraform init'"
+                    sh 'cd fold2 && terraform init'
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 script {
-                    sh "'cd npm_frontend/fold2 && terraform apply -auto-approve'"
+                    sh 'cd fold2 && terraform apply -auto-approve'
                 }
             }
         }
